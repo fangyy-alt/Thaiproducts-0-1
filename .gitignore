@@ -1,10 +1,22 @@
 # ============================================================
-# 系统
+# 系统 — macOS / Windows / Linux
 # ============================================================
 .DS_Store
+._*
+.AppleDouble
+.LSOverride
+Icon?
+.Spotlight-V100
+.Trashes
+.fseventsd
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 *.swp
 *.swo
-Thumbs.db
+*~
+.fuse_hidden*
+.directory
 
 # ============================================================
 # 编辑器 / IDE
@@ -16,9 +28,11 @@ Thumbs.db
 !.vscode/launch.json
 !.vscode/extensions.json
 *.iml
+*.sublime-project
+*.sublime-workspace
 
 # ============================================================
-# Claude Code 本地
+# Claude Code 本地配置
 # ============================================================
 .claude/
 
@@ -29,7 +43,11 @@ app/node_modules/
 app/.next/
 app/out/
 app/build/
+app/dist/
 app/.swc/
+app/.turbo/
+app/.output/
+app/.parcel-cache/
 app/next-env.d.ts
 app/.eslintcache
 app/tsconfig.tsbuildinfo
@@ -39,16 +57,51 @@ app/.env
 app/.env.local
 app/.env*.local
 app/.env.production
+app/.env.development.local
+
+# Vercel 本地构建产物（vercel deploy 后生成）
+app/.vercel/
+
+# 包管理器缓存（lock 文件保留入仓，仅缓存忽略）
+app/.yarn/cache/
+app/.yarn/install-state.gz
+app/.yarn/build-state.yml
+app/.yarn/unplugged/
+app/.pnpm-store/
 
 # 测试输出
 app/coverage/
+app/.nyc_output/
 
+# ============================================================
 # 日志
+# ============================================================
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
+
+# ============================================================
+# 运行时
+# ============================================================
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================================
+# Python（偶尔用 python3 跑数据脚本时产生）
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.pytest_cache/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
 
 # ============================================================
 # 调研原始数据（大文件 + 隐私考虑）
@@ -65,4 +118,8 @@ all_comments.json
 # ============================================================
 *.tmp
 *.cache
+*.bak
+*.orig
+
+# 仓库根的 tmp 目录（仅匹配根，不影响 /tmp 系统）
 /tmp/
